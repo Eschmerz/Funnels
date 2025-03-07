@@ -1,0 +1,389 @@
+/* 
+    =========================================
+    1. RESET Y TIPOGRAFÍA BÁSICA (MOBILE FIRST)
+    =========================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Usamos la fuente Roboto (u otra que prefieras) */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff; /* Fondo blanco estilo Apple */
+    color: #333;           /* Texto gris oscuro */
+    line-height: 1.6;
+}
+
+/* Enlaces */
+a {
+    text-decoration: none;
+    color: inherit; /* Toma el color del padre, para “estilo Apple minimal” */
+}
+
+/* Imágenes con bordes redondeados */
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+/* 
+    =========================================
+    2. ENCABEZADO / MENÚ
+    =========================================
+*/
+.header {
+    position: sticky;
+    top: 0;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    /* Sombra sutil */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+/* Para móviles, podrías ocultar el menú y usar hamburguesa, 
+   pero en este ejemplo lo dejamos simple. 
+*/
+.nav li a {
+    font-weight: 400;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav li a:hover {
+    background-color: #eaeaea;
+}
+
+/* 
+    =========================================
+    3. SECCIÓN HERO
+    =========================================
+*/
+.hero {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    text-align: center;
+    /* Fondo claro, estilo minimal Apple */
+    background-color: #fefefe;
+}
+
+.hero h1 {
+    font-size: 1.8rem; /* Mobile-first, luego escalamos en media queries */
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #000; /* Texto más oscuro para mejor contraste */
+}
+
+.hero p {
+    font-size: 1rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+/* Botón principal */
+.cta-btn {
+    display: inline-block;
+    background-color: #007aff; /* Azul estilo iOS */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 400;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #0061d8;
+    transform: translateY(-2px);
+}
+
+/* 
+    =========================================
+    4. CONTENEDOR GENERAL
+    =========================================
+*/
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+}
+
+/* 
+    =========================================
+    5. BLOQUES DE CONTENIDO
+    =========================================
+    Mobile-first: cada bloque se apila en vertical.
+*/
+.content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Para invertir el orden en pantallas grandes, definimos .reverse más abajo */
+.content-block.reverse {
+    flex-direction: column;
+}
+
+.content-img {
+    width: 100%;
+}
+
+.content-text {
+    width: 100%;
+}
+
+.content-text h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.content-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.content-text p,
+.content-text li {
+    margin-bottom: 0.8rem;
+    color: #444;
+}
+
+.content-list {
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+    list-style-type: disc;
+}
+
+/* 
+    =========================================
+    6. ASIDE / SECCIÓN EXTRA
+    =========================================
+*/
+aside {
+    background-color: #f9f9f9;
+    padding: 1rem 1.5rem;
+    border-left: 5px solid #007aff; /* Azul iOS */
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+/* 
+    =========================================
+    7. BOTÓN DE CONTACTO (WhatsApp)
+    =========================================
+*/
+.btn-contact {
+    display: inline-block;
+    background-color: #25d366; /* Color de WhatsApp */
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 400;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-contact:hover {
+    background-color: #20b456;
+    transform: translateY(-2px);
+}
+
+/* 
+    =========================================
+    8. FOOTER
+    =========================================
+*/
+.footer {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    box-shadow: 0 -1px 3px rgba(0,0,0,0.05);
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* 
+    =========================================
+    9. ANIMACIONES Y EFECTOS
+    =========================================
+*/
+/* Keyframes para fade-in y fade-in-up */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estado inicial: los elementos con fade-in o fade-in-up empiezan ocultos */
+.fade-in,
+.fade-in-up {
+    opacity: 0;
+}
+
+/* Cuando se añade la clase "appear", se activan las animaciones */
+.fade-in.appear {
+    animation: fadeIn 1.2s ease forwards;
+}
+
+.fade-in-up.appear {
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* 
+    =========================================
+    10. MEDIA QUERIES PARA PANTALLAS GRANDES
+    =========================================
+    A partir de 768px (tablet) o 1024px (desktop), ajustamos.
+*/
+@media (min-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .content-block {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .content-block.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .content-img, 
+    .content-text {
+        width: 50%;
+    }
+}
+
+    /* =========================================
+    Estilos para el Modal (Formulario emergente)
+    =========================================
+    */
+    .modal {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5); /* Fondo semitransparente */
+    }
+    
+    .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 1.5rem;
+        border-radius: 10px;
+        max-width: 500px;
+        width: 90%;
+        position: relative;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .modal-content h2 {
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .modal-content label {
+        display: block;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: #333;
+    }
+    
+    .modal-content input,
+    .modal-content textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 0.9rem;
+    }
+    
+    .modal-content textarea {
+        resize: vertical;
+        min-height: 80px;
+    }
+    
+    .modal-content button.submit-btn {
+        display: block;
+        width: 100%;
+        background-color: #007aff; /* Azul estilo iOS */
+        color: #fff;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 30px;
+        margin-top: 1.5rem;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    
+    .modal-content button.submit-btn:hover {
+        background-color: #0061d8;
+        transform: translateY(-2px);
+    }
+    
+    /* Botón de cerrar modal */
+    .modal-content .close {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: #333;
+        cursor: pointer;
+    }
+    
